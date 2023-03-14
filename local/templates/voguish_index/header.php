@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<? if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die(); ?>
 <!--
 https://w3layouts.com/voguish-a-blogging-category-flat-bootstrap-responsive-web-template/
 Author: W3layouts
@@ -10,11 +10,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <html>
 <head>
     <?php
+
     use Bitrix\Main\Page\Asset;
+
     $APPLICATION->ShowHead();
     ?>
 
-    <title><?php $APPLICATION->ShowTitle()?></title>
+    <title><?php $APPLICATION->ShowTitle() ?></title>
 
     <?php
     Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . "/css/bootstrap.css");
@@ -22,18 +24,24 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     Asset::getInstance()->addString("<meta name='viewport' content='width=device-width, initial-scale=1'>");
     Asset::getInstance()->addString("<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900' rel='stylesheet' type='text/css'>");
     Asset::getInstance()->addString("<link href='http://fonts.googleapis.com/css?family=Libre+Baskerville:400,700' rel='stylesheet' type='text/css'>");
-    Asset::getInstance()->addString('<link type="image/x-icon" href="'.SITE_TEMPLATE_PATH.'/favicon.ico" rel="shortcut icon" />');
+    Asset::getInstance()->addString('<link type="image/x-icon" href="' . SITE_TEMPLATE_PATH . '/favicon.ico" rel="shortcut icon" />');
     Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . "/js/responsiveslides.min.js");
     CJScore::Init(['jquery']);
 
     ?>
 
 
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name="keywords" content="Voguish Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template,
-Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design"/>
 
-    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <script type="application/x-javascript"> addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        } </script>
     <script>
         $(function () {
             $("#slider").responsiveSlides({
@@ -49,37 +57,41 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 </head>
 <body>
-<div id="panel"><?php $APPLICATION->ShowPanel();?></div>
+<div id="panel"><?php $APPLICATION->ShowPanel(); ?></div>
 <!-- header -->
 <div class="header">
     <div class="container">
-        <?$APPLICATION->IncludeComponent(
+        <? $APPLICATION->IncludeComponent(
             "bitrix:main.include",
             "",
-            Array(
+            array(
                 "AREA_FILE_SHOW" => "file",
                 "AREA_FILE_SUFFIX" => "inc",
                 "EDIT_TEMPLATE" => "",
                 "PATH" => "/include/logo.php"
             )
-        );?>
-        <div class="head-nav">
-            <span class="menu"> </span>
-            <ul class="cl-effect-1">
-                <li class="active"><a href="index.html">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="404.html">Shortcodes</a></li>
-                <li><a href="login.html">Login</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <div class="clearfix"></div>
-            </ul>
-        </div>
+        ); ?>
+
+        <? $APPLICATION->IncludeComponent("bitrix:menu", "main_menu", array(
+            "ALLOW_MULTI_SELECT" => "N",    // Разрешить несколько активных пунктов одновременно
+            "CHILD_MENU_TYPE" => "left",    // Тип меню для остальных уровней
+            "DELAY" => "N",    // Откладывать выполнение шаблона меню
+            "MAX_LEVEL" => "1",    // Уровень вложенности меню
+            "MENU_CACHE_GET_VARS" => array(    // Значимые переменные запроса
+                0 => "",
+            ),
+            "MENU_CACHE_TIME" => "3600",    // Время кеширования (сек.)
+            "MENU_CACHE_TYPE" => "N",    // Тип кеширования
+            "MENU_CACHE_USE_GROUPS" => "Y",    // Учитывать права доступа
+            "ROOT_MENU_TYPE" => "main",    // Тип меню для первого уровня
+            "USE_EXT" => "N",    // Подключать файлы с именами вида .тип_меню.menu_ext.php
+        ),
+            false
+        ); ?>
         <!-- script-for-nav -->
         <script>
-            $( "span.menu" ).click(function() {
-                $( ".head-nav ul" ).slideToggle(300, function() {
+            $("span.menu").click(function () {
+                $(".head-nav ul").slideToggle(300, function () {
                     // Animation complete.
                 });
             });
@@ -87,8 +99,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <!-- script-for-nav -->
 
 
-
-        <div class="clearfix"> </div>
+        <div class="clearfix"></div>
     </div>
 </div>
 <!-- header -->
